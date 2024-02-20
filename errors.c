@@ -3,7 +3,7 @@
 //no se
 void	free_matriz(char **arg)
 {
-	int	x;
+	int	i;
 
 	i = -1;
 	if (NULL == arg || NULL == *arg)
@@ -32,6 +32,7 @@ void	free_tlist(t_list **stacka)
 }
 
 // para imprimir mensaje de error y limpiar la memoria 
+
 void	error_free(t_list **a, char **argv, bool flag_argc_2)
 {
 	free_tlist(a);
@@ -44,16 +45,17 @@ void	error_free(t_list **a, char **argv, bool flag_argc_2)
 // compruebo que no haya errores en la sintaxis del argv. es decir al
 // escribir el argumentos desde la terminal. Si hay error, envio a la funcion free
 //para que la memoria se limpie.  y muestre un mensaje de error.
+
 int	error_syntax(char *argv_nb)
 {
 	if (!(*argv_nb == '+' 
-				|| *argv_nb == '-'
-				|| (*argv_nb >= '0' && *argv_nb <= '9')))
+					|| *argv_nb == '-'
+					|| (*argv_nb >= '0' && *argv_nb <= '9')))
 		return (1);
 	if ((*argv_nb == '+'
 				|| *argv_nb == '-')
 				&& !(argv_nb[1] >= '0' && argv_nb[1] <= '9'))
-		return (1);
+		return (1);	
 	while (*++argv_nb)
 	{
 		if (!(*argv_nb >= '0' && *argv_nb <= '9'))
@@ -66,7 +68,7 @@ int	error_syntax(char *argv_nb)
 int	error_rep(t_list *a, int nbr)
 {
 	if (a == NULL)
-		return (NULL);
+		return (0);
 	while (a)
 	{
 		if (a->value == nbr)

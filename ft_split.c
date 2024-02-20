@@ -28,7 +28,7 @@ static int	len_words(char *st, char ch)
 	contador = 0;
 	while (*st == ch)
 		st++;
-	while (*st != ch)
+	while (*st != ch && *st)
 	{
 		contador++;
 		st++;
@@ -87,15 +87,16 @@ char	**ft_split(char *str, char delim)
 	int		j;
 	int		i;
 
-	array = (char **)malloc(sizeof(char *) * (count_words(str, delim) + 1));
+	array = (char **)malloc(sizeof(char *) * (count_words(str, delim) + 2));
 	if (!array)
 		return (NULL);
 	j = 0;
-	i = 0;
-	while (i < count_words(str, delim))
+	i = 1;
+	while (i <= count_words(str, delim))
 	{
 		while (str[j] == delim && str[j])
 			j++;
+		array[0] = 0;
 		array[i] = ft_substr(str, j, len_words(&str[j], delim));
 		if (!array[i])
 			return (free_m(array, i));

@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct	s_list
 {
@@ -15,12 +16,14 @@ typedef struct	s_list
 }	t_list;
 
 int			ft_strlen(char *str);
-int			ft_atoi(char *str);
+long		ft_atol(char *str);
 int			error_syntax(char *argv_nb);
-int			error_free(t_list **a, char **argv, bool flag_argc_2);
+void		error_free(t_list **a, char **argv, bool flag_argc_2);
 int			error_rep(t_list *a, int nbr);
 char		**ft_split(char *str, char delim);
 void		stack_init(t_list **a, char **argv, bool flag_argc_2);
+void		add_node(t_list **st_a, int nbr);
+
 
 
 #endif

@@ -1,10 +1,10 @@
 #include "libpushswap.h"
 
-int	ft_atoi(char *str)
+long	ft_atol(char *str)
 {
 	int	x;
 	int	signo;
-	int	result;
+	long	result;
 
 	result = 0;
 	signo = 1;
@@ -25,6 +25,7 @@ int	ft_atoi(char *str)
 	return (result * signo);
 }
 
+
 void	stack_init(t_list **a, char **argv, bool flag_argc_2)
 {
 	long	nbr;
@@ -33,14 +34,19 @@ void	stack_init(t_list **a, char **argv, bool flag_argc_2)
 	i = 0;
 	while (argv[i])
 	{
+		int len = ft_strlen(argv[i]);
+		if (argv[i][0] == '-')
+			len--;
+		if (len > 12)
+			error_free(a, argv, flag_argc_2);
 		if (error_syntax(argv[i]))
 			error_free(a, argv, flag_argc_2);
-		nbr = ft_atoi(argv[i]);
+		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, flag_argc_2);
 		if (error_rep(*a, (int)nbr))
 			error_free(a, argv, flag_argc_2);
-		append_node(a, (int)nbr); // me quede aca..
+		add_node(a, (int)nbr);
 		++i;
 	}
 
