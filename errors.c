@@ -14,14 +14,14 @@ void	free_matriz(char **arg)
 }
 
 // no se
-void	free_tlist(t_list **stacka)
+void	free_tlist(t_list **stack)
 {
 	t_list	*tmp;
 	t_list	*current;
 
-	if (NULL == stacka)
+	if (NULL == stack)
 		return ;
-	current = *stacka;
+	current = *stack;
 	while (current)
 	{
 		tmp = current->next;
@@ -38,7 +38,7 @@ void	error_free(t_list **a, char **argv, bool flag_argc_2)
 	free_tlist(a);
 	if (flag_argc_2)
 		free_matriz(argv);
-	write(2, "Error\n", 6);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 

@@ -17,5 +17,10 @@ int	main(int argc, char **argv)
 		printf("nodo: %d\n", (int)a->value);
 		a = a->next;
 	}
+	if (!stack_sorted(a))
+	{
+
+	}
+	free_tlist(&a);
 	return (0);
 }

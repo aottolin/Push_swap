@@ -1,5 +1,36 @@
 #include "libpushswap.h"
 
+t_list  *find_lastnode(t_list *st_a);
+long	ft_atol(char *str);
+void	add_node(t_list **st_a, int nbr);
+
+void	stack_init(t_list **a, char **argv, bool flag_argc_2)
+{
+	long	nbr;
+	int		i;
+
+	i = 0;
+	while (argv[i])
+	{
+		int len = ft_strlen(argv[i]);
+		if (argv[i][0] == '-')
+			len--;
+		if (len > 12)
+			error_free(a, argv, flag_argc_2);
+		if (error_syntax(argv[i]))
+			error_free(a, argv, flag_argc_2);
+		nbr = ft_atol(argv[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			error_free(a, argv, flag_argc_2);
+		if (error_rep(*a, (int)nbr))
+			error_free(a, argv, flag_argc_2);
+		add_node(a, (int)nbr);
+		++i;
+	}
+	if (flag_argc_2)
+		free_matriz(argv);
+}
+
 long	ft_atol(char *str)
 {
 	int	x;
@@ -25,30 +56,36 @@ long	ft_atol(char *str)
 	return (result * signo);
 }
 
-
-void	stack_init(t_list **a, char **argv, bool flag_argc_2)
+void	add_node(t_list **st_a, int nbr)
 {
-	long	nbr;
-	int		i;
+	t_list	*node;
+	t_list	*last_node;
 
-	i = 0;
-	while (argv[i])
+	if (st_a == NULL)
+		return ;
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return ;
+	node->next = NULL;
+	node->value = nbr;
+	if (*st_a == NULL)
 	{
-		int len = ft_strlen(argv[i]);
-		if (argv[i][0] == '-')
-			len--;
-		if (len > 12)
-			error_free(a, argv, flag_argc_2);
-		if (error_syntax(argv[i]))
-			error_free(a, argv, flag_argc_2);
-		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, flag_argc_2);
-		if (error_rep(*a, (int)nbr))
-			error_free(a, argv, flag_argc_2);
-		add_node(a, (int)nbr);
-		++i;
+		*st_a = node;
+		node->prev = NULL;
 	}
+	else
+	{
+		last_node = find_lastnode(*st_a);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
 
-
+t_list	*find_lastnode(t_list *st_a)
+{
+	if (st_a == NULL)
+		return (NULL);
+	while (st_a->next)
+		st_a = st_a->next;
+	return (st_a);
 }
