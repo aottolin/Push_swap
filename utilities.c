@@ -25,3 +25,12 @@ int	stack_len(t_list *stack)
 	return (len);
 
 }
+
+t_list	*find_lastnode(t_list *st_a)
+{
+	if (st_a == NULL)
+		return (NULL);
+	while (st_a->next)
+		st_a = st_a->next;
+	return (st_a);
+}

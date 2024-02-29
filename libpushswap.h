@@ -27,7 +27,7 @@ void		error_free(t_list **a, char **argv, bool flag_argc_2);
 int			error_rep(t_list *a, int nbr);
 // Para anadir dentro de stack a:
 void		add_node(t_list **st_a, int nbr);
-
+t_list	*find_lastnode(t_list *st_a);
 
 
 #endif

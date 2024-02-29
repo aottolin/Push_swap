@@ -1,4 +1,7 @@
 #include "libpushswap.h"
+/*
+ * Push a node to the top from src to dest
+*/
 
 static void	push(t_list **dest, t_list **stack)
 {

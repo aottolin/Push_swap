@@ -1,6 +1,5 @@
 #include "libpushswap.h"
 
-t_list  *find_lastnode(t_list *st_a);
 long	ft_atol(char *str);
 void	add_node(t_list **st_a, int nbr);
 
