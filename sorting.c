@@ -13,15 +13,20 @@ bool	stack_sorted(t_list *stack);
 	return (true);
 }
 
-void	little_sort(t_list **a)
+void	push_swap(t_list **a, t_list **b)
 {
-	t_list	*highestnode;
+	t_list	*small;
+	int		len;
 
-	highest_node = find_highest_node(*a)
-	if (*a == highest_node)
-		ra(a, false);
-	else if ((a*)->next == highest_node)
-		rra(a, false);
-	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
+	len = stack_len(*a);
+	if (len == 5)
+		five_nodes(a, b);
+	else
+	{
+		while (len-- > 3)
+			pb(b, a, false);
+	}
+	little_sort(a);
+
+
 }

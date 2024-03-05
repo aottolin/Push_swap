@@ -10,6 +10,8 @@
 typedef struct	s_list
 {
 	int				value;
+	int				posicion_actual;
+	bool			arriba_mitad;
 	struct	s_list *target_node;
 	struct	s_list *next;
 	struct	s_list *prev;
