@@ -19,7 +19,12 @@ int	main(int argc, char **argv)
 	}
 	if (!stack_sorted(a))
 	{
-
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			little_sort(&a);
+		else
+			push_swap(&a, &b);
 	}
 	free_tlist(&a);
 	return (0);

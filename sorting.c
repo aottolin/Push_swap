@@ -12,3 +12,16 @@ bool	stack_sorted(t_list *stack);
 	}
 	return (true);
 }
+
+void	little_sort(t_list **a)
+{
+	t_list	*highestnode;
+
+	highest_node = find_highest_node(*a)
+	if (*a == highest_node)
+		ra(a, false);
+	else if ((a*)->next == highest_node)
+		rra(a, false);
+	if ((*a)->value > (*a)->next->value)
+		sa(a, false);
+}

@@ -34,3 +34,23 @@ t_list	*find_lastnode(t_list *st_a)
 		st_a = st_a->next;
 	return (st_a);
 }
+
+static t_list	*find_highest_node(t_list *st)
+{
+	t_list	*highest_node;
+	int		high;
+
+	high = INT_MIN;
+	if (st == NULL)
+		return (NULL);
+	while (st)
+	{
+		if (st->value > high)
+		{
+			high = st->value;
+			highest_node = st;
+		}
+		st = st->next;
+	}
+	return (highest_node)
+}
