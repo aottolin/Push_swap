@@ -11,7 +11,9 @@ typedef struct	s_list
 {
 	int				value;
 	int				posicion_actual;
+	int				push_costo;
 	bool			arriba_mitad;
+	bool			cheapest;
 	struct	s_list *target_node;
 	struct	s_list *next;
 	struct	s_list *prev;

@@ -1,28 +1,5 @@
 #include "libpushswap.h"
 
-void	little_sort(t_list **a)
-{
-	t_list	*highestnode;
-
-	highest_node = find_highest_node(*a)
-	if (*a == highest_node)
-		ra(a, false);
-	else if ((a*)->next == highest_node)
-		rra(a, false);
-	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
-}
-
-void	five_nodes(t_list **a, t_list **b)
-{
-	while (stack_len(*a) > 3)
-	{
-		init_nodes(*a, *b);
-	}
-
-
-}
-
 void	set_target_node(t_list *a, t_list *b)
 {
 	t_list	*actual_a;
@@ -45,8 +22,9 @@ void	set_target_node(t_list *a, t_list *b)
 		if (LONG_MAX == best_match)
 			b->target_node = find_smallest(a);
 		else
-			b->target_node 
-
+			b->target_node = target_node;
+		b = b->next;
+	}
 }
 
 void	set_posicion_actual(t_list *stack)
@@ -70,11 +48,51 @@ void	set_posicion_actual(t_list *stack)
 	}
 }
 
+void	set_costo(t_list *a, t_list *b)
+{
+	int	len_a;
+	int	len_b;
+
+	len_a = stack_len(a);
+	len_b = stack_len(b);
+	while (b)
+	{
+		b->push_costo = b->posicion_actual;
+		if (!(b->arriba_mitad))
+			b->push_costo = len_b - (b->posicion_actual);
+		if (b->target_node->arriba_mitad)
+			b->push_costo += b->target_node->posicion_actual;
+		else
+			b->push_costo =+ len_a - (b->target_node->posicion_actual);
+		b = b->next;
+	}
+}
+
+void	set_cheapest(t_list *b)
+{
+	long	best_match;
+	t_list	*best_match_node;
+
+	if (b == NULL)
+		return ;
+	best_match = LONG_MAX;
+	while (b)
+	{
+		if (b->set_costo < best_match)
+		{
+			best_match = b->set_costo;
+			best_match_node = b;
+		}
+		b = b->next;
+	}
+	best_match_node->cheapest = true;
+}
+
 void	init_nodes(t_list *a, t_list *b)
 {
 	set_posicion_actual(a);
 	set_posicion_actual(b);
 	set_target_node(a, b);
-	set_price(a, b);
+	set_costo(a, b);
 	set_cheapest(b);
 }
