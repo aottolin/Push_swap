@@ -1,8 +1,5 @@
 #include "libpushswap.h"
 
-long	ft_atol(char *str);
-void	add_node(t_list **st_a, int nbr);
-
 void	stack_init(t_list **a, char **argv, bool flag_argc_2)
 {
 	long	nbr;
@@ -78,13 +75,4 @@ void	add_node(t_list **st_a, int nbr)
 		last_node->next = node;
 		node->prev = last_node;
 	}
-}
-
-t_list	*find_lastnode(t_list *st_a)
-{
-	if (st_a == NULL)
-		return (NULL);
-	while (st_a->next)
-		st_a = st_a->next;
-	return (st_a);
 }

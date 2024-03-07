@@ -15,7 +15,6 @@ static void	swap(t_list **stack)
     swap->next = (*stack)->next;
     (*stack)->next = swap;
     swap->prev = *stack;	
-
 }
 
 void	sa(t_list **a, bool checker)

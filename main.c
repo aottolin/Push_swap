@@ -3,20 +3,15 @@
 int	main(int argc, char **argv)
 {
 	t_list	*a;
-	//t_list	*b;
+	t_list	*b;
 
 	a = NULL;
-//	b = NULL;
+	b = NULL;
 	if ((argc == 1) || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	stack_init(&a, argv + 1, 2 == argc);
-	while (a)
-	{
-		printf("nodo: %d\n", (int)a->value);
-		a = a->next;
-	}
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)

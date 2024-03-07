@@ -1,6 +1,5 @@
 #include "libpushswap.h"
 
-//no se
 void	free_matriz(char **arg)
 {
 	int	i;
@@ -13,7 +12,6 @@ void	free_matriz(char **arg)
 	free(arg - 1);
 }
 
-// no se
 void	free_tlist(t_list **stack)
 {
 	t_list	*tmp;
@@ -28,10 +26,9 @@ void	free_tlist(t_list **stack)
 		free(current);
 		current = tmp;
 	}
-	*stacka = NULL;
+	*stack = NULL;
 }
 
-// para imprimir mensaje de error y limpiar la memoria 
 
 void	error_free(t_list **a, char **argv, bool flag_argc_2)
 {
@@ -41,10 +38,6 @@ void	error_free(t_list **a, char **argv, bool flag_argc_2)
 	write(1, "Error\n", 6);
 	exit(1);
 }
-
-// compruebo que no haya errores en la sintaxis del argv. es decir al
-// escribir el argumentos desde la terminal. Si hay error, envio a la funcion free
-//para que la memoria se limpie.  y muestre un mensaje de error.
 
 int	error_syntax(char *argv_nb)
 {
@@ -64,7 +57,6 @@ int	error_syntax(char *argv_nb)
 	return (0);
 }
 
-// comprobar que cuando se pasen los argumentos no se repita ningun valor
 int	error_rep(t_list *a, int nbr)
 {
 	if (a == NULL)

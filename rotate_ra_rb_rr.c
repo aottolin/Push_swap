@@ -12,7 +12,7 @@ static void	rotate(t_list **stack)
 	if (*stack == NULL || stack == NULL || len == 1)
 		return ;
 	lastnode = find_lastnode(*stack);
-	lastnode->next = *stack
+	lastnode->next = *stack;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	lastnode->next->prev = lastnode;

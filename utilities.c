@@ -35,22 +35,15 @@ t_list	*find_lastnode(t_list *st_a)
 	return (st_a);
 }
 
-static t_list	*find_highest_node(t_list *st)
+t_list	*return_cheapest(t_list *stack)
 {
-	t_list	*highest_node;
-	int		high;
-
-	high = INT_MIN;
-	if (st == NULL)
+	if (NULL == stack)
 		return (NULL);
-	while (st)
+	while (stack)
 	{
-		if (st->value > high)
-		{
-			high = st->value;
-			highest_node = st;
-		}
-		st = st->next;
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
 	}
-	return (highest_node)
+	return (NULL);
 }

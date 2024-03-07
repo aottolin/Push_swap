@@ -78,9 +78,9 @@ void	set_cheapest(t_list *b)
 	best_match = LONG_MAX;
 	while (b)
 	{
-		if (b->set_costo < best_match)
+		if (b->push_costo < best_match)
 		{
-			best_match = b->set_costo;
+			best_match = b->push_costo;
 			best_match_node = b;
 		}
 		b = b->next;

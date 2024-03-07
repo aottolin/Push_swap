@@ -1,7 +1,4 @@
 #include "libpushswap.h"
-/*
- * Push a node to the top from src to dest
-*/
 
 static void	push(t_list **dest, t_list **stack)
 {
@@ -11,15 +8,15 @@ static void	push(t_list **dest, t_list **stack)
 		return ;
 	tmp = (t_list *)malloc(sizeof(t_list));
 	if (!tmp)
-		return (NULL);
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	if (*stack)
-		*stack->prev = NULL;
+		(*stack)->prev = NULL;
 	if (*dest == NULL)
 	{
 		*dest = tmp;
-		tmp->next i= NULL;
+		tmp->next = NULL;
 	}
 	else
 	{
@@ -40,5 +37,5 @@ void	pb(t_list **b, t_list **a, bool checker)
 {
 	push(b, a);
 	if (!checker)
-		write(1, pb\n", 3);
+		write(1, "pb\n", 3);
 }
