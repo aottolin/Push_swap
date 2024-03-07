@@ -13,7 +13,7 @@ static void	reverse_rotate(t_list **stack)
 	lastnode->next = *stack;
 	*stack = lastnode;
 	lastnode->prev = NULL;
-	lastnode->prev->next = lastnode;
+	lastnode->next->prev = lastnode;
 }
 
 void	rra(t_list **a, bool checker)
