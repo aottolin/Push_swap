@@ -11,8 +11,8 @@ static void	reverse_rotate(t_list **stack)
 	lastnode = find_lastnode(*stack);
 	lastnode->prev->next = NULL;
 	lastnode->next = *stack;
-	*stack = lastnode;
 	lastnode->prev = NULL;
+	*stack = lastnode;
 	lastnode->next->prev = lastnode;
 }
 

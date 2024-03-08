@@ -2,19 +2,19 @@
 
 static void	swap(t_list **stack)
 {
-	t_list	*swap;
 	int	len;
 
 	len = stack_len(*stack);
 	if (*stack == NULL || stack == NULL || len == 1)
 		return ;
-	swap = *stack;
-    *stack = (*stack)->next;
-    (*stack)->prev = NULL;
-    (*stack)->next->prev = swap;
-    swap->next = (*stack)->next;
-    (*stack)->next = swap;
-    swap->prev = *stack;	
+	*stack = (*stack)->next;
+    (*stack)->prev->prev = *stack;
+    (*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
+
 }
 
 void	sa(t_list **a, bool checker)

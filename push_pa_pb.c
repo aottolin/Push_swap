@@ -6,9 +6,6 @@ static void	push(t_list **dest, t_list **stack)
 
 	if (*stack == NULL)
 		return ;
-	tmp = (t_list *)malloc(sizeof(t_list));
-	if (!tmp)
-		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	if (*stack)
