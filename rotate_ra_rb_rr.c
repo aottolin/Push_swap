@@ -38,5 +38,5 @@ void	rr(t_list **a, t_list **b, bool checker)
 	rotate(a);
 	rotate(b);
 	if (!checker)
-		write(1, "rr\n", 1);
+		write(1, "rr\n", 3);
 }
