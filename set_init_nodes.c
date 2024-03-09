@@ -63,7 +63,7 @@ void	set_costo(t_list *a, t_list *b)
 		if (b->target_node->arriba_mitad)
 			b->push_costo += b->target_node->posicion_actual;
 		else
-			b->push_costo =+ len_a - (b->target_node->posicion_actual);
+			b->push_costo += len_a - (b->target_node->posicion_actual);
 		b = b->next;
 	}
 }

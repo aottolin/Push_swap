@@ -18,9 +18,9 @@ static t_list	*find_highest_node(t_list *st)
 	t_list	*highest_node;
 	int		high;
 
-	high = INT_MIN;
 	if (st == NULL)
 		return (NULL);
+	high = INT_MIN;
 	while (st)
 	{
 		if (st->value > high)

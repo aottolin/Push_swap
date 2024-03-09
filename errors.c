@@ -35,7 +35,7 @@ void	error_free(t_list **a, char **argv, bool flag_argc_2)
 	free_tlist(a);
 	if (flag_argc_2)
 		free_matriz(argv);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
