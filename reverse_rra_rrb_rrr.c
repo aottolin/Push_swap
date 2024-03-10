@@ -3,7 +3,7 @@
 static void	reverse_rotate(t_list **stack)
 {
 	t_list	*lastnode;
-	int	len;
+	int		len;
 
 	len = stack_len(*stack);
 	if (stack == NULL || *stack == NULL || len == 1)
@@ -20,7 +20,7 @@ void	rra(t_list **a, bool checker)
 {
 	reverse_rotate(a);
 	if (!checker)
-		write(1, "rra\n", 4); 
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **b, bool checker)

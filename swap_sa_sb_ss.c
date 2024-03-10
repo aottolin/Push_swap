@@ -8,13 +8,12 @@ static void	swap(t_list **stack)
 	if (*stack == NULL || stack == NULL || len == 1)
 		return ;
 	*stack = (*stack)->next;
-    (*stack)->prev->prev = *stack;
-    (*stack)->prev->next = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
 	if ((*stack)->next)
 		(*stack)->next->prev = (*stack)->prev;
 	(*stack)->next = (*stack)->prev;
 	(*stack)->prev = NULL;
-
 }
 
 void	sa(t_list **a, bool checker)

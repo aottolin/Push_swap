@@ -1,4 +1,4 @@
-# ifndef LIBPUSHSWAP_H
+#ifndef LIBPUSHSWAP_H
 # define LIBPUSHSWAP_H
 
 # include <unistd.h>
@@ -7,16 +7,16 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	int				value;
 	int				posicion_actual;
 	int				push_costo;
 	bool			arriba_mitad;
 	bool			cheapest;
-	struct	s_list	*target_node;
-	struct	s_list	*next;
-	struct	s_list	*prev;
+	struct s_list	*target_node;
+	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
 
 char			**ft_split(char *str, char delim);
@@ -42,7 +42,8 @@ void			set_costo(t_list *a, t_list *b);
 void			set_cheapest(t_list *b);
 void			init_nodes(t_list *a, t_list *b);
 void			push_swap(t_list **a, t_list **b);
-void			stop_rotation(t_list **stack, t_list *top_node, char stack_name);
+void			stop_rotation(t_list **stack, t_list *top_node,
+					char stack_name);
 void			sa(t_list **a, bool checker);
 void			sb(t_list **b, bool checker);
 void			ss(t_list **a, t_list **b, bool checker);

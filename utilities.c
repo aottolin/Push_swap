@@ -23,7 +23,6 @@ int	stack_len(t_list *stack)
 		stack = stack->next;
 	}
 	return (len);
-
 }
 
 t_list	*find_lastnode(t_list *st_a)

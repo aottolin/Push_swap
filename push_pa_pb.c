@@ -18,7 +18,7 @@ static void	push(t_list **dest, t_list **stack)
 	else
 	{
 		tmp->next = *dest;
-		tmp->next->prev  = tmp;
+		tmp->next->prev = tmp;
 		*dest = tmp;
 	}
 }

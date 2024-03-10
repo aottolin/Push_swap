@@ -4,11 +4,12 @@ void	stack_init(t_list **a, char **argv, bool flag_argc_2)
 {
 	long	nbr;
 	int		i;
+	int		len;
 
 	i = 0;
 	while (argv[i])
 	{
-		int len = ft_strlen(argv[i]);
+		len = ft_strlen(argv[i]);
 		if (argv[i][0] == '-')
 			len--;
 		if (len > 12)
@@ -29,8 +30,8 @@ void	stack_init(t_list **a, char **argv, bool flag_argc_2)
 
 long	ft_atol(char *str)
 {
-	int	x;
-	int	signo;
+	int		x;
+	int		signo;
 	long	result;
 
 	result = 0;

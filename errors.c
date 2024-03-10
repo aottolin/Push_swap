@@ -29,7 +29,6 @@ void	free_tlist(t_list **stack)
 	*stack = NULL;
 }
 
-
 void	error_free(t_list **a, char **argv, bool flag_argc_2)
 {
 	free_tlist(a);
@@ -41,14 +40,12 @@ void	error_free(t_list **a, char **argv, bool flag_argc_2)
 
 int	error_syntax(char *argv_nb)
 {
-	if (!(*argv_nb == '+' 
-					|| *argv_nb == '-'
-					|| (*argv_nb >= '0' && *argv_nb <= '9')))
+	if (!(*argv_nb == '+' || *argv_nb == '-'
+			|| (*argv_nb >= '0' && *argv_nb <= '9')))
 		return (1);
-	if ((*argv_nb == '+'
-				|| *argv_nb == '-')
-				&& !(argv_nb[1] >= '0' && argv_nb[1] <= '9'))
-		return (1);	
+	if ((*argv_nb == '+' || *argv_nb == '-')
+		&& !(argv_nb[1] >= '0' && argv_nb[1] <= '9'))
+		return (1);
 	while (*++argv_nb)
 	{
 		if (!(*argv_nb >= '0' && *argv_nb <= '9'))
