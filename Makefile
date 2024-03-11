@@ -32,7 +32,7 @@ SILENCE = --no-print-directory
 
 all: $(NAME)
 
-$(NAME) : $(ARCHIVE)
+$(NAME) : $(ARCHIVE) libpushswap.h
 	@$(CC) $< -o $@
 	@echo "$(WHITE) $(NAME) $(RESET) $(GREEN) ok $(RESET)"
 	@echo "$(GREEN) -Todo ha sido compilado! $(RESET)"
